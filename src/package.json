@@ -1,0 +1,37 @@
+{
+  "name": "ng-social-login",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "author": {
+    "name": "Satish Lakhani",
+    "email": "satishlakhani11@gmail.com"
+  },
+  "keywords": [
+    "angular",
+    "angular4",
+    "ng4",
+    "social authentication",
+    "angular-social-login",
+    "social-authentication",
+    "social-login",
+    "google-authentication",
+    "facebook-authentication"
+  ],
+  "license": "MIT",
+  "bugs": {
+    "url": ""
+  },
+  "main": "ng-social-login.umd.js",
+  "module": "ng-social-login.js",
+  "jsnext:main": "ng-social-login.js",
+  "typings": "ng-social-login.d.ts",
+  "peerDependencies": {
+    "@angular/common": "^4.0.0",
+    "@angular/core": "^4.0.0",
+    "rxjs": "^5.1.0",
+    "zone.js": "^0.8.4"
+  }
+}

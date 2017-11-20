@@ -5,7 +5,8 @@ This is the refrenced library from [ng4-social-login](https://github.com/sarfara
 Social login and authentication module for Angular 4.
 Supports authentication with **Google**, **Linkedin** and **Facebook**.
 
-This will return a **token (for Facebook and Google)** and **code (for Linked In)** along with profile detail so that logged in user from client side can also be verified on server side.
+#### Main Feature ####
+This will also return a **token (for Facebook and Google)** and **code (for Linked In)** along with profile detail so that logged in user from client side can also be verified on server side.
 
 ## Getting started
 

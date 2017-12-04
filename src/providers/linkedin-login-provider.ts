@@ -81,9 +81,9 @@ export class LinkedinLoginProvider extends BaseLoginProvider {
 
       newWindow = window.open(url, "_blank", "width=550, height=500, top=50%, left=50%");
       this.windows.push(newWindow);
-      this.triggerTimeout(this.windows[0]);
+      this.triggerTimeout(newWindow);
 
-      this.polling(redirect_uri).then(function(res) {
+      this.polling(redirect_uri, newWindow).then(function(res) {
         newWindow.close();
         resolve(res);
       });
@@ -94,7 +94,7 @@ export class LinkedinLoginProvider extends BaseLoginProvider {
     setTimeout(function() { this.childWindow = win }, 100);
   }
 
-  polling(redirectUri: string): Promise<any> {
+  polling(redirectUri: string, popupWindow): Promise<any> {
     return new Promise((resolve, reject) => {
       function parseQueryString(str) {
         var obj = {};
@@ -109,12 +109,13 @@ export class LinkedinLoginProvider extends BaseLoginProvider {
             obj = Object.assign(obj, tmp);
           }
         });
+
         return obj;
       }
 
       var interval = setInterval(function() {
         try {
-          var popupWindowPath = this.childWindow.location;
+          var popupWindowPath = popupWindow.location;
           if (popupWindowPath.origin === redirectUri) {
             let searchStr = popupWindowPath.search.substring(1).replace(/\/$/, '');
             let obj = parseQueryString(searchStr);
